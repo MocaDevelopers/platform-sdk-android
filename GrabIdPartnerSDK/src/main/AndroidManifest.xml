@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Grab Taxi Holdings PTE LTD (GRAB)
+  ~
+  ~ This source code is licensed under the MIT license found in the
+  ~ LICENSE file in the root directory of this source tree.
+  ~
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.grab.partner.sdk">
+
+    <queries>
+        <package android:name="com.grabtaxi.passenger" />
+        <package android:name="com.grabtaxi.passenger.beta" />
+    </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity
+            android:name=".wrapper.chrometabmanager.ChromeManagerActivity"
+            android:launchMode="singleTask" />
+    </application>
+
+</manifest>

@@ -1,0 +1,17 @@
+<!--
+  ~ Copyright (c) Grab Taxi Holdings PTE LTD (GRAB)
+  ~
+  ~ This source code is licensed under the MIT license found in the
+  ~ LICENSE file in the root directory of this source tree.
+  ~
+  -->
+
+<resources>
+    <string name="app_name">GrabIdPartnerSDK</string>
+    <string name="login_button_text">Continue with Grab</string>
+    <string name="validate_token_button_text">Get Id Token Info</string>
+    <string name="access_protected_resource">Access Protected Resource</string>
+    <string name="logout_button_text">Clear Grab Sign In Session</string>
+    <string name="relaunch_login_process">Restart Login</string>
+    <string name="title_activity_web_login">WebLogin</string>
+</resources>

@@ -1,0 +1,97 @@
+/*
+ * Copyright (c) Grab Taxi Holdings PTE LTD (GRAB)
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka-android'
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion buildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion minSdkSupportedVersion
+        targetSdkVersion maxSdkSupportedVersion
+        versionCode appVersion
+        versionName appVersionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    publishedGroupId = 'com.grab.grabidpartnersdk'
+    libraryName =  project.getName()
+    artifact =  project.getName()
+
+    libraryDescription = 'The GrabId Partner SDK allows users to sign in with their Grab account from third-party apps.'
+
+    siteUrl = 'https://github.com/grab/grabplatform-sdk-android'
+    gitUrl = 'https://github.com/grab/grabidpartnersdk-android.git'
+    githubRepository= 'grab/grabplatform-sdk-android'
+
+    libraryVersion = '2.0.9' // Current version of .aar in JCenter
+
+    licenseName = 'The MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation appcompat
+    implementation preferenceLibrary
+
+    // Kotlin
+    implementation kotlin
+
+    // Dagger 2
+    implementation dagger
+    kapt daggercompiler
+
+    // retrofit
+    implementation retrofit
+    implementation retrofitrx
+    implementation convertergson
+
+    // rxandroid
+    implementation rxandroid
+    implementation rxkotlin
+
+    // Chrome custom tab
+    implementation chromecustomtab
+
+    //Logging Interceptor
+    implementation okhttplogging
+
+    // unit tests
+    testImplementation junit
+    testImplementation powermock
+    testImplementation powermockapi
+    testImplementation mockitokotlin
+}
+
+//gradle file to publish the .aar
+apply from: './scripts/publish.gradle'
